@@ -1,0 +1,522 @@
+/* style.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    overflow-x: hidden;
+    margin: 0; /* Remove default margin to ensure proper layout */
+    padding: 0;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+    position: sticky;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    width: 100%; /* Ensure header spans the full width */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+main {
+    padding-bottom: 60px; /* Ensure there's enough space for the footer at the bottom */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex; /* Use flexbox to align image and text */
+    align-items: center; /* Vertically align items */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo img {
+    max-height: 100px; /* Adjust as needed */
+    margin-right: 10px; /* Space between image and text */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Increased minimum height */
+    background-image: url("hero_background.jpg"); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden; /* Prevent background from overflowing during animations */
+}
+
+.hero::before { /* Gradient Overlay */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)); /* Adjust gradient */
+    z-index: 1;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Refined text shadow */
+}
+
+.hero h1 {
+    font-size: 4.5em; /* Increased font size */
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.6em;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 800px; /* Limit paragraph width */
+    text-align: center;
+    animation: fadeInUp 1.3s ease-out; /* Staggered animation */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px; /* Increased padding */
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box-shadow */
+    animation: fadeInUp 1.6s ease-out; /* Further staggered animation */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increased box-shadow on hover */
+}
+/* style.css */
+/* ... (Other styles: body, header, nav, hero, footer - remain the same) */
+
+#testimonials {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 300px; /* Add a minimum height */
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    /*min-height: 300px;*/ /*Or here, if you want the container to have min height*/
+}
+
+.testimonial {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 30%;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.testimonial.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#courses {
+    padding: 50px;
+    text-align: center;
+    overflow: hidden; /* Important for smooth animation */
+}
+
+.course-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.course {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 30%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s ease, transform 0.8s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.course.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.course img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.course-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.course-button:hover {
+    background-color: #0056b3;
+}
+
+
+.price {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#features {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.feature img {
+    max-width: 80px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+.feature:hover{
+    transform: translateY(-5px);
+}
+
+.about-page {
+    padding: 40px;
+}
+
+.about-hero {
+    background-image: url("about_hero_background.jpg"); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+.about-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.about-hero-content{
+    position: relative;
+    z-index: 2;
+}
+
+.about-section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.about-section-content ul{
+    list-style: disc;
+    padding-left: 20px;
+}
+.about-section-content ul li{
+    margin-bottom: 10px;
+}
+
+.about-mission,
+.about-team,
+.about-values {
+    margin-bottom: 40px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.team-member {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* style.css */
+footer {
+    background-color:rgba(248, 244, 244, 0.518); /* Light background */
+    padding: 40px 0; /* Top and bottom padding */
+    color: #333;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-around; /* Distribute sections evenly */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 23%; /* Adjust as needed for desired layout */
+    margin-bottom: 20px; /* Space between sections vertically */
+    box-sizing: border-box; /* Include padding in width */
+}
+.contact-us{
+    text-align: left;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    max-height: 60px;
+    margin-right: 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #007bff; /* Example hover color */
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    height: 20px;
+}
+.contact-us img{
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd; /* Separator line */
+    margin-top: 20px;
+}
+
+.copyright a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center horizontally */
+    }
+
+    .footer-section {
+        width: 90%; /* Make sections take up most of the width */
+        text-align: center; /* Center text within sections */
+    }
+    .contact-us{
+        text-align: center;
+    }
+}
+
+/* Styles for the "Learn More" pages */
+.learn-more-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.learn-more-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.learn-more-container p {
+    margin-bottom: 15px;
+}
+
+.qr-code {
+    display: block;
+    margin: 20px auto;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes courseFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .testimonial-container,
+    .course-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial,
+    .course {
+        width: 90%; /* Adjusted width for better mobile view */
+        margin-bottom: 20px;
+    }
+    .learn-more-container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+}
